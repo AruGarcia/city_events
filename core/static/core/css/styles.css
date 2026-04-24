@@ -1,0 +1,187 @@
+:root {
+    --ce-cream: #f7f1ea;
+    --ce-paper: #ffffff;
+    --ce-ink: #1d1d1f;
+    --ce-muted: #6f6a66;
+    --ce-line: #ece4db;
+    --ce-orange: #de5b31;
+    --ce-orange-dark: #bb441e;
+    --ce-black: #221c19;
+    --ce-shadow: 0 24px 60px rgba(53, 32, 20, 0.12);
+    --ce-radius-xl: 2rem;
+    --ce-radius-lg: 1.5rem;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--ce-ink);
+    background:
+        radial-gradient(circle at top left, rgba(245, 176, 65, 0.35), transparent 28rem),
+        linear-gradient(180deg, #f6efe8 0%, #f1e6da 100%);
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.ce-navbar {
+    padding: 1.25rem 0 0.5rem;
+}
+
+.ce-brand-badge {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, var(--ce-orange) 0%, #f09249 100%);
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 16px 30px rgba(222, 91, 49, 0.3);
+}
+
+.ce-shell {
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 2.25rem;
+    box-shadow: var(--ce-shadow);
+    backdrop-filter: blur(18px);
+}
+
+.ce-hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.85rem;
+    background: linear-gradient(135deg, #221c19 0%, #54301b 100%);
+    color: #fff;
+}
+
+.ce-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -4rem -5rem auto;
+    width: 16rem;
+    height: 16rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 178, 80, 0.45), transparent 65%);
+}
+
+.ce-chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.ce-chip-light {
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.ce-chip-soft {
+    background: #f9efe6;
+    color: var(--ce-orange-dark);
+}
+
+.ce-btn-primary {
+    background: var(--ce-orange);
+    border-color: var(--ce-orange);
+    color: #fff;
+    border-radius: 999px;
+    padding-inline: 1.15rem;
+    box-shadow: 0 12px 25px rgba(222, 91, 49, 0.25);
+}
+
+.ce-btn-primary:hover,
+.ce-btn-primary:focus {
+    background: var(--ce-orange-dark);
+    border-color: var(--ce-orange-dark);
+    color: #fff;
+}
+
+.ce-btn-dark {
+    background: var(--ce-black);
+    border-color: var(--ce-black);
+    color: #fff;
+    border-radius: 999px;
+    padding-inline: 1.15rem;
+}
+
+.ce-btn-outline {
+    border-radius: 999px;
+    border: 1px solid var(--ce-line);
+    background: #fff;
+    color: var(--ce-ink);
+    padding-inline: 1.15rem;
+}
+
+.ce-card {
+    background: var(--ce-paper);
+    border: 1px solid var(--ce-line);
+    border-radius: var(--ce-radius-lg);
+    box-shadow: 0 10px 30px rgba(38, 24, 13, 0.04);
+}
+
+.ce-stat-card {
+    min-height: 100%;
+}
+
+.ce-section-title {
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 800;
+}
+
+.ce-muted {
+    color: var(--ce-muted);
+}
+
+.ce-event-card {
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.ce-event-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 34px rgba(38, 24, 13, 0.08);
+}
+
+.ce-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.ce-description {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.ce-form-control,
+.ce-form-control:focus {
+    border-radius: 1rem;
+    border-color: var(--ce-line);
+    box-shadow: none;
+}
+
+.ce-form-control:focus {
+    border-color: rgba(222, 91, 49, 0.6);
+}
+
+.ce-sidebar-note {
+    background: linear-gradient(180deg, #fff9f4 0%, #fff 100%);
+}
+
+@media (max-width: 991.98px) {
+    .ce-shell {
+        border-radius: 1.5rem;
+    }
+
+    .ce-hero {
+        text-align: center;
+    }
+}

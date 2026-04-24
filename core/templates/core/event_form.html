@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}Novo Evento | City Events{% endblock %}
+
+{% block content %}
+    <section class="ce-hero p-4 p-lg-5 mb-4">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-9">
+                <span class="ce-chip ce-chip-light mb-3">Novo cadastro</span>
+                <h1 class="ce-section-title mb-3">Crie um novo evento</h1>
+                <p class="lead text-white-50 mb-4">
+                    Preencha as informações abaixo para publicar seu evento.
+                </p>
+                <a class="btn ce-btn-outline text-white border-white bg-transparent" href="{% url 'event_list' %}">
+                    Voltar para lista
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="row g-4">
+        <div class="col-lg-8">
+            <article class="ce-card p-4 p-lg-5">
+                <div class="mb-4">
+                    <span class="ce-chip ce-chip-soft mb-3">Publicação</span>
+                    <h2 class="h3 mb-2">Detalhes do evento</h2>
+                    <p class="ce-muted mb-0">
+                        Informe os dados principais para que as pessoas encontrem seu evento com facilidade.
+                    </p>
+                </div>
+
+                <form class="row g-3" method="post">
+                    {% csrf_token %}
+
+                    {% if form.non_field_errors %}
+                        <div class="col-12">
+                            <div class="alert alert-danger rounded-4 mb-0">
+                                {% for error in form.non_field_errors %}
+                                    <div>{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="col-12">
+                        <label class="form-label fw-semibold" for="{{ form.title.id_for_label }}">Título do evento</label>
+                        {{ form.title }}
+                        {% if form.title.errors %}
+                            <div class="text-danger small mt-2">{{ form.title.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold" for="{{ form.date.id_for_label }}">Data do evento</label>
+                        {{ form.date }}
+                        {% if form.date.errors %}
+                            <div class="text-danger small mt-2">{{ form.date.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold" for="{{ form.location.id_for_label }}">Local (ex: Praça Central)</label>
+                        {{ form.location }}
+                        {% if form.location.errors %}
+                            <div class="text-danger small mt-2">{{ form.location.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label fw-semibold" for="{{ form.description.id_for_label }}">Descrição (opcional)</label>
+                        {{ form.description }}
+                        {% if form.description.errors %}
+                            <div class="text-danger small mt-2">{{ form.description.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="col-12 d-flex flex-wrap gap-2 pt-2">
+                        <button class="btn ce-btn-primary" type="submit">Publicar evento</button>
+                        <a class="btn ce-btn-dark" href="{% url 'event_list' %}">Cancelar</a>
+                    </div>
+                </form>
+            </article>
+        </div>
+
+        <aside class="col-lg-4">
+            <div class="row g-3">
+                <div class="col-sm-6 col-lg-12">
+                    <div class="ce-card ce-sidebar-note p-4">
+                        <span class="ce-chip ce-chip-soft mb-3">Boas práticas</span>
+                        <h3 class="h5">Título direto e local exato</h3>
+                        <p class="ce-muted mb-0">
+                            Use um nome claro e informe o local da forma como as pessoas realmente procuram.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-12">
+                    <div class="ce-card p-4">
+                        <span class="ce-chip ce-chip-soft mb-3">Responsivo</span>
+                        <h3 class="h5">Publicação simples</h3>
+                        <p class="ce-muted mb-0">
+                            Depois de publicar, o evento volta para a agenda principal com confirmação de sucesso.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </section>
+{% endblock %}
