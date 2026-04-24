@@ -1,5 +1,8 @@
 from django.urls import path
 
-from .views import home
+from .views import event_create, event_list
 
-urlpatterns = [path("", home, name="home")]
+urlpatterns = [
+    path("", event_list, name="event_list"),
+    path("novo/", event_create, name="event_create"),
+]
